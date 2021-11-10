@@ -6,8 +6,8 @@ import Footer from '../components/footer.jsx';
 import furnitureBG from '../images/furniture-bg-9.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentUser } from '../redux/userRedux.js';
+import { publicRequest } from '../requestMethods';
 import { login } from '../redux/apiCalls';
-import axios from 'axios';
 
 const Container = styled.div`
     height: 100vh;
@@ -126,7 +126,7 @@ const Login = () => {
 
         e.preventDefault();
         // First wer call our login and see if user inputs are valid.  
-        axios.post('http://localhost:4000/api/auth/login', user).then(resp => {
+        publicRequest.post('/auth/login', user).then(resp => {
             // set up conditions to display appropriate error messages
             if (
                 resp.data === "incorrect password" 

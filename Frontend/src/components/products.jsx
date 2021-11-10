@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Product from "./product.jsx";
 // import { popularProducts } from '../data';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { publicRequest } from '../requestMethods';
+// Use publicRequest to use axios with a baseURL so can be easy to deploy and connect to backend
 
 
 const Container = styled.div`
@@ -20,9 +21,9 @@ const Products = ({category, filters, sort}) => {
                 try {
                     let receivedAPI;
                     if (category === "sofas" || category === "chairs" || category === "outdoors") {
-                        receivedAPI = await axios.get(`http://localhost:4000/api/products?category=${category}`)
+                        receivedAPI = await publicRequest.get(`/products?category=${category}`)
                     } else {
-                        receivedAPI = await axios.get("http://localhost:4000/api/products")
+                        receivedAPI = await publicRequest.get("/products")
                     }
                     // console.log(receivedAPI.data + " <= receivedAPI.data");
                     setProducts(receivedAPI.data);

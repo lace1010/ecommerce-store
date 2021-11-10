@@ -5,6 +5,7 @@ import Announcement from '../components/announcement.jsx';
 import Footer from '../components/footer.jsx';
 import Products from '../components/products.jsx';
 import { useLocation } from 'react-router-dom';
+import { RefreshOutlined } from '@material-ui/icons';
 
 
 const Title = styled.h1`
@@ -19,10 +20,17 @@ const Title = styled.h1`
 const FilterContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
 `
 
 const Filter = styled.div`
-    margin: 20px;
+    display: flex;
+    margin: 15px;
+    @media (max-width: 650px) {
+        margin: 5px;
+    }
 `
 
 const FilterText = styled.span`
@@ -40,6 +48,17 @@ const Select = styled.select`
 `
 const Option = styled.option``
 
+const Refresh = styled.div`
+    margin-left: 5px;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        color: lightgray;
+        transform: scale(1.1);
+    } 
+`
 const ProductList = () => {
     // gets the path name inside location object from url (import it from react-router-dom)
     const location = useLocation();
@@ -72,6 +91,7 @@ const ProductList = () => {
                         <Option>red</Option>
                         <Option>tan</Option>
                     </Select>
+                    <Refresh onClick={() => {window.location.reload(true)}}><RefreshOutlined /></Refresh>
                 </Filter>
                 <Filter>
                     <FilterText>Sort products:</FilterText>

@@ -4,7 +4,9 @@ import Navbar from '../components/navbar.jsx';
 import Announcement from '../components/announcement.jsx';
 import Footer from '../components/footer.jsx';
 import furnitureBG from '../images/furniture-bg-7.png';
-import axios from 'axios';
+import { publicRequest } from '../requestMethods.js';
+// Use publicRequest to use axios with a baseURL so can be easy to deploy and connect to backend
+import { frontEndUrl } from '../requestMethods.js';
 
 const Container = styled.div`
     height: 100vh;
@@ -118,7 +120,7 @@ const Register = () => {
                 email: email,
                 password: password,
             }
-            axios.post('http://localhost:4000/api/auth/register', newUser)
+            publicRequest.post('/auth/register', newUser)
                 .then(handleRedirect);
         }
     }
@@ -127,7 +129,7 @@ const Register = () => {
         alert("Thank you for registering. Now sign in to your account and enjoy shopping");
         // Could use useHistory.goBack() but wouldn't necessarilty go back to home page. would just go to previous page shopper was on.
         // will have to change when hosting.
-        window.location.href = 'http://localhost:3000/login';
+        window.location.href = `${frontEndUrl}/login`;
     }
     return (
         <div>

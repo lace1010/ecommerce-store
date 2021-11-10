@@ -5,9 +5,10 @@ import Announcement from '../components/announcement.jsx';
 import Footer from '../components/footer.jsx';
 import { Remove, Add } from '@material-ui/icons';
 import { useLocation } from 'react-router';
-import axios from 'axios';
 import { addProduct } from '../redux/cartRedux.js';
 import { useDispatch } from 'react-redux';
+import { publicRequest } from '../requestMethods';
+// Use publicRequest to use axios with a baseURL so can be easy to deploy and connect to backend
 
 const Container = styled.div`
     min-height: 60vh;
@@ -188,7 +189,7 @@ const Product = () => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-               const res = await axios.get(`http://localhost:4000/api/products/find/` + id)
+               const res = await publicRequest.get(`/products/find/` + id)
                setProduct(res.data);
             }catch(err) {
                 console.log(err)

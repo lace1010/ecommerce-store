@@ -5,10 +5,11 @@ import Navbar from '../components/navbar.jsx';
 import Footer from '../components/footer.jsx';
 import { CheckCircleOutline } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import paperAirplane from "../images/paper-airplane.png";
 import { Facebook, Twitter } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { publicRequest } from '../requestMethods.js';
+// Use publicRequest to use axios with a baseURL so can be easy to deploy and connect to backend
 
 const Container = styled.div`
     display: flex;
@@ -179,7 +180,7 @@ const Success = () => {
     useEffect(() => {
         const createOrder = async () => {
             try {
-                const res = await axios.post("http://localhost:4000/api/order", {
+                const res = await publicRequest.post("/order", {
                     userId: currentUser._id,
                     products: cart.products.map((item) => ({
                       productId: item._id,

@@ -123,7 +123,6 @@ const Payment = styled.img`
 `
 
 const Copyright = styled.div`
-    width: 100%;
     background-color: #505050;
     color: white;
     text-align: center;
