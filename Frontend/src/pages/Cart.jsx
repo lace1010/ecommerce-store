@@ -311,7 +311,6 @@ const Cart = () => {
         } 
         // not being called.
         if (type === "inc") {
-            console.log("click")
             dispatch(addProductQuantity(item));
         }
     }

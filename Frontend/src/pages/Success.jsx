@@ -169,14 +169,11 @@ const Success = () => {
     const cart = location.state.products;
     let currentUser = useSelector((state) => state.user.currentUser);
     const [orderId, setOrderId] = useState(null);
-    console.log(data);
-    console.log(cart);
 
     if (currentUser === "") {
         currentUser = { _id: "guest" }
     }
-
-    console.log(currentUser, "<= currentUser")
+    
     useEffect(() => {
         const createOrder = async () => {
             try {

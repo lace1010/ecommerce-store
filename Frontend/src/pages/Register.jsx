@@ -113,8 +113,7 @@ const Register = () => {
             setErrorMessage("passwords do not match.");
             return false;
         } else {
-            setError(false)
-            console.log("reached end")
+            setError(false);
             const newUser = {
                 username: username,
                 email: email,
