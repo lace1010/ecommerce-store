@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /success
+Allow: /cart
+Allow: /products
+Allow: /register
+Allow: /login
