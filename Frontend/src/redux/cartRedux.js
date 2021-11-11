@@ -26,14 +26,36 @@ const cartSlice = createSlice({
 
     // add reducer that makes item quantity go up 1
 
+    // This log shows the quantity of the product. this is what we need to manipulate when add/subtract button is clicked
+    //console.log(state.products[1].quantity, "<= product quantity");
+
     // New
-    // subtractProduct: (state, action) => {
-    //   state.quantity -= 1;
-    //   state.total -= action.payload.price * action.payload.quantity;
-    // },
+    subtractProductQuantity: (state, action) => {
+      // First we find the index of the product that was clicked and then use that to change it's quantity
+      let productIndex = state.products.findIndex(
+        (item) => item._id === action.payload._id
+      );
+
+      // if product is more than 1 we can then subtract one.
+      if (state.products[productIndex].quantity > 1) {
+        state.products[productIndex].quantity -= 1;
+        state.total -= action.payload.price;
+      }
+    },
+
+    addProductQuantity: (state, action) => {
+      // First we find the index of the product that was clicked and then use that to change it's quantity
+      let productIndex = state.products.findIndex(
+        (item) => item._id === action.payload._id
+      );
+      // if product is more than 1 we can then subtract one.
+      if (state.products[productIndex].quantity < 20) {
+        state.products[productIndex].quantity += 1;
+        state.total += action.payload.price;
+      }
+    },
 
     deleteProduct: (state, action) => {
-      console.log(action, "<= action");
       state.quantity -= 1;
       state.products = [
         ...state.products.filter((item) => item._id !== action.payload._id),
@@ -49,7 +71,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct } = cartSlice.actions;
-export const { subtractProduct } = cartSlice.actions;
-export const { deleteProduct, deleteAllProducts } = cartSlice.actions;
+export const {
+  addProduct,
+  subtractProductQuantity,
+  addProductQuantity,
+  deleteProduct,
+  deleteAllProducts,
+} = cartSlice.actions;
 export default cartSlice.reducer;

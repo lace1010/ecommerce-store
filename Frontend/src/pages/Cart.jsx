@@ -10,7 +10,7 @@ import { userRequest} from '../requestMethods';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteProduct, deleteAllProducts } from '../redux/cartRedux.js';
+import { deleteProduct, deleteAllProducts, subtractProductQuantity, addProductQuantity } from '../redux/cartRedux.js';
 
 const Container = styled.div`
     padding: 20px;
@@ -305,17 +305,16 @@ const Cart = () => {
     }
 
     // Problem here ishat the inital quantity of items in cart will vary. because we use map to display all products i am not sure how to manipulate the amount by using usestate
-    // const handleQuantity = (type) => {
-        // console.log(quantity)
-        // if(type === "dec" && quantity > 1) {
-        //     setQuantity(quantity -1);
-        // } else if (type === "inc" && quantity < 20) {
-        //     setQuantity(quantity + 1);
-        // }
-    // }
-    // trying to add inside cart page like in product.
-    // first handle add and remove with plus and minus icon. then dispatch to redux. debating on adding trash can to delete. or a confirmation button
-
+    const handleProductQuantity = (item, type) => {
+        if (type === "dec") {
+            dispatch(subtractProductQuantity(item));
+        } 
+        // not being called.
+        if (type === "inc") {
+            console.log("click")
+            dispatch(addProductQuantity(item));
+        }
+    }
     return (
         <div>
             <Navbar />
@@ -358,10 +357,10 @@ const Cart = () => {
                             <ProductPriceContainer>
                                 <ProductAmountContainer>
                                     {/* onClick={() => handleQuantity("dec"), item.quantity} */}
-                                    <Icon><Remove /></Icon>
+                                    <Icon onClick={() => handleProductQuantity(item, "dec")}><Remove /></Icon>
                                     <ProductAmount>{item.quantity}</ProductAmount>
                                     {/* onClick={() => handleQuantity("inc", item.quantity)} */}
-                                    <Icon onClick={() => {}}><Add/></Icon>
+                                    <Icon onClick={() => handleProductQuantity(item, "inc")}><Add/></Icon>
                                     <IconDelete><DeleteForever onClick={() => handleClick(item)}/></IconDelete>
                                 </ProductAmountContainer>
                                 <ProductPrice>${item.price * item.quantity}.00</ProductPrice>
