@@ -21,6 +21,7 @@ const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 20px;
     @media (max-width: 775px) {
         padding: 0 20px;
   }
