@@ -7,6 +7,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* We use persist to keep cart and login status even after refresh by using cache */}
     <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
