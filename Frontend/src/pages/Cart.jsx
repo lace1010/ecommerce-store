@@ -231,7 +231,7 @@ const SummaryItemPrice = styled.span``
 const Icon = styled.span`
     cursor: pointer;
 `
-const IconDelete = styled.a`
+const IconDelete = styled.span`
     cursor: pointer;
     color: red;
 `
@@ -346,7 +346,7 @@ const Cart = () => {
                         {cart.products.map((item) => (
                         <Product key={item._id}>
                             <ProductInfoContainer>
-                                <Img src={item.img}/>
+                                <Img src={item.img} alt={item.title}/>
                                 <ProductDetails>
                                     <ProductName><b>Product: </b>{item.title}</ProductName>
                                     <ProductId><b>ID: </b>{item._id}</ProductId>

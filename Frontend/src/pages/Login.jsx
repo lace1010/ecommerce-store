@@ -170,7 +170,7 @@ const Login = () => {
                         <ALinkButtonContainer>
                             <Button onClick={handleClick} disabled={isFetching} >Login</Button>
                             <ALinkContainer>
-                                <ALink>Don't remember your password?</ALink>
+                                <ALink href="#">Don't remember your password?</ALink>
                                 <ALink href="/register">Create a new account</ALink>
                             </ALinkContainer>
                         </ALinkButtonContainer>

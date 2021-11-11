@@ -170,12 +170,12 @@ const Footer = () => {
             <ContactContainer>
                 <ContactTitle>CONTACT US</ContactTitle>
                 <ContactItem href="https://www.google.com/maps/place/1000+Iowa+Ave,+Holton,+KS+66436,+USA/@39.4720408,-95.7411546,17z/data=!3m1!4b1!4m5!3m4!1s0x87be4ad70b8dc829:0xebeafaacb84abb81!8m2!3d39.4720408!4d-95.7389659"
-                 target="_blank">
+                 target="_blank" rel="noopener">
                      <LocationOn/> 1000 Iowa Ave, Holton, Kansas(KS), 66436
                 </ContactItem>
                 <ContactItem href="tel: +1-(123)-456-7890"><Phone/> +1-(123)-456-7890</ContactItem>
                 <ContactItem href="mailto: contact@ecommerce.com"><EmailOutlined/> contact@ecommerce.com</ContactItem>
-                <Payment src={paymentImage}/>
+                <Payment src={paymentImage} alt="payment types accepted"/>
             </ContactContainer>
         </Container>
         <Copyright>	&copy; 2021 Hunter Lacefield </Copyright>

@@ -208,16 +208,16 @@ const Success = () => {
                                 Help us spread the word by sharing our website with your friends and followers on social media!
                             </ShareText>
                             <ShareButtonContainer>
-                                <ShareButton href="https://www.facebook.com/" target="_blank" color={"#3b5998"}>
+                                <ShareButton href="https://www.facebook.com/" target="_blank" rel="noopener" color={"#3b5998"}>
                                    <Facebook/> facebook
                                 </ShareButton>
-                                <ShareButton href="https://twitter.com/" target="_blank" color={"#1DA1F2"} style={{"margin-left": "15px"}}>
+                                <ShareButton href="https://twitter.com/" target="_blank" rel="noopener" color={"#1DA1F2"} style={{"marginLeft": "15px"}}>
                                    <Twitter/> twitter
                                 </ShareButton>
                             </ShareButtonContainer>
                         </InfoContainer>
                         <ImgContainer>
-                            <Img src={paperAirplane}/>
+                            <Img src={paperAirplane} alt="paper airplane"/>
                         </ImgContainer>
                     </ShareContainer>
 

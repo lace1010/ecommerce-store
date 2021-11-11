@@ -91,11 +91,11 @@ const Product = ({item}) => {
     }
     return (
         <Container>
-            <Img src={item.img}/>
+            <Img src={item.img} alt={item.title}/>
             <InfoContainer>
                 <IconContainer>
                     <Icon>
-                        <Link to={`/product/${item._id}`}>
+                        <Link to={`/product/${item._id}`} aria-label={item.title}>
                             <Search />
                         </Link>
                     </Icon>

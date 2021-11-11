@@ -216,7 +216,7 @@ const Product = () => {
             <Announcement />
             <Container>
                 <ImgContainer>
-                    <Img src={product.img}></Img>
+                    <Img src={product.img} alt={product.title}></Img>
                 </ImgContainer>
                     
                 <InfoContainer>

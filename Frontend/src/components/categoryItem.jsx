@@ -69,7 +69,7 @@ const Button = styled.button`
 const categoryItem = ({item}) => {
     return (
        <Container> 
-            <Img src={item.img}></Img>
+            <Img src={item.img} alt={item.title + "background"}/>
                 <InfoContainer>
                     <Title>
                         {item.title}
