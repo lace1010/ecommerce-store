@@ -137,7 +137,7 @@ const Register = () => {
             <Container>
                 <Wrapper>
                 <Title>CREATE AN ACCOUNT</Title>
-                    <Form id="registerForm" onSubmit={handleSubmit}>
+                    <Form id="registerForm" onSubmit={handleSubmit(e)}>
                         <Input placeholder="First name" required/>
                         <Input placeholder="Last name" required/>
                         <Input placeholder="Username" name="username" required/>
